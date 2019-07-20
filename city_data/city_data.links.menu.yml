@@ -1,0 +1,6 @@
+city_data.field_mapping:
+  route_name: city_data.field_mapping
+  parent: system.admin_config
+  title: City Data Mapping Settings
+  description: 'Drupal MongoDB field mapping'
+  

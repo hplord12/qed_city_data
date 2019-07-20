@@ -1,0 +1,3 @@
+services:
+  city_data.mongodb:
+    class: Drupal\city_data\MongoJsonData

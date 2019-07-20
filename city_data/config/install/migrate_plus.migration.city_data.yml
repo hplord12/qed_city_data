@@ -1,0 +1,62 @@
+id: city_data 
+label: MongoDB Json Migration 
+Group: json_example 
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  # The URL of mongo JSON datasource
+  urls: http://localhost/smsa_exp/mongo-data
+  fields:
+    -
+      name: _id
+      label: 'Unique City Identifier'
+      selector: _id
+    -
+      name: city
+      label: 'City Name'
+      selector: city
+    -
+      name: pop
+      label: 'City Pop'
+      selector: pop
+    -
+      name: state
+      label: 'City State'
+      selector: state
+      
+    -
+      name: latitude
+      label: 'City Location latitude'
+      selector: latitude
+      
+    -
+      name: longitude
+      label: 'City Location Longitude'
+      selector: longitude
+      
+  ids:
+      _id:
+        type: integer
+destination: 
+  plugin: entity:node 
+  bundle: city_data 
+process:
+  type:
+    plugin: default_value
+    default_value: city_data
+    
+  title: city
+  field_city_id: _id
+  field_city_name: city
+  field_city_pop: pop
+  field_city_state: state
+  field_city_latitude: latitude
+  field_city_longitude: longitude
+      
+  sticky:
+    plugin: default_value
+    default_value: 0
+  uid:
+    plugin: default_value
+    default_value: 1

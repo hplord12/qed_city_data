@@ -1,0 +1,9 @@
+name: City Data Migration
+description: This module do migration for cities data from MongoDB to Drupal.
+package: Migration
+type: module
+core: 8.x
+dependencies:
+  - drupal:migrate
+  - migrate_plus:migrate_plus
+  - migrate_tools:migrate_tools

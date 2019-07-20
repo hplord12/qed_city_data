@@ -1,0 +1,18 @@
+city_data.mongo_data:
+   # This path provide cities data from mongodb.  
+  path: '/mongo-data'
+  defaults:
+    _controller: '\Drupal\city_data\Controller\MongoJsonController::getResults'
+    _format: json
+  requirements:
+    _access: 'TRUE'
+    
+city_data.field_mapping:
+ # This path provide mapping between drupal and mongodb.
+ path: '/mongo-mapping'
+ defaults:
+   _form: '\Drupal\city_data\Form\MongoMappingForm'
+   _title: 'Drupal Mongo Fields Setting'
+ # Require admin permission to access this route.
+ requirements:
+   _permission: 'access administration pages'
