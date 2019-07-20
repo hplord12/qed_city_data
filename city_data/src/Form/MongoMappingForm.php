@@ -60,8 +60,7 @@ class MongoMappingForm extends FormBase {
     
     // Get process mapping from city data configuration.
     $process = $this->config->get('process');
-    ksm($process);
-
+    // @TODO handle this extra keys also in future.
     $non_field_key = ["type", "sticky", "uid","title", "field_city_latitude","field_city_longitude"];
 
     // Parent container.
@@ -124,7 +123,7 @@ class MongoMappingForm extends FormBase {
 
     // Get only process mapping fields from city data configuration.
     $process = $this->config->get('process');
-     ksm($process,"111");
+     // @TODO handle this extra keys also in future.
     $non_field_key = ["type", "sticky", "uid","title", "field_city_latitude","field_city_longitude"];
     foreach ($process as $key => $value) {
       if (!in_array($key, $non_field_key)) {
@@ -141,10 +140,7 @@ class MongoMappingForm extends FormBase {
     // Get updated mapping.
     $updated_arr = array_combine($drupal_side_fields, $mongo_side_fields);
     // Array merge for drupal and mongo side.
-    ksm($process,"222");
-    ksm($updated_arr,"333");
     $final_updated_arr = (array_merge($process, $updated_arr));
-      ksm($final_updated_arr,"444");
     // Update configurations changed by admin.
     $config_factory = \Drupal::configFactory();
     $config_factory->getEditable('migrate_plus.migration.city_data')->set('process', $final_updated_arr)->save();
