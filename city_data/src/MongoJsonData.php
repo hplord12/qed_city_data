@@ -27,10 +27,8 @@ class MongoJsonData implements MongoJsonDataInterface {
       $json_data[$key]['city'] = $document['city'];
       $json_data[$key]['pop'] = (int)$document['pop'];
       $json_data[$key]['state'] = $document['state'];
-      foreach($document['loc'] as $k=>$v){
-        $json_data[$key]['latitude'] = $v;
-        $json_data[$key]['longitude'] = $v;
-      }
+      $json_data[$key]['longitude'] = $document['loc'][0];
+      $json_data[$key]['latitude'] = $document['loc'][1];
     }
 
     return $json_data;
